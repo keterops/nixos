@@ -18,13 +18,8 @@
   };
 
   networking = {
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
-
     interfaces.enp0s25.useDHCP = true;
+    firewall.enable = true;
     hostName = "rev9";
     useDHCP = false;
   };
