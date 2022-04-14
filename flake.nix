@@ -15,8 +15,8 @@
       nixosConfigurations.rev9 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./nix/hardware.nix
-          ./nix/system.nix
+          ./nix/configuration.nix
+          ./nix/hardware-configuration.nix
           { nix.registry.nixpkgs.flake = nixpkgs; }
           home-manager.nixosModules.home-manager
           {
