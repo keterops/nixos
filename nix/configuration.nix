@@ -1,4 +1,13 @@
 { config, pkgs, ... }: {
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+
+    package = pkgs.nixUnstable;
+    trustedUsers = [ "root" "keter" "@wheel" ];
+  };
+
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
@@ -53,7 +62,7 @@
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
       noto-fonts-emoji-blob-bin
     ];
-  
+
     fontconfig = {
       defaultFonts = {
         monospace = [ "Fira Code" ];
